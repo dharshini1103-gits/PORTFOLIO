@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dharshini K | Full Stack Developer</title>
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{background:#050812;color:#e5e5e5;scroll-behavior:smooth}
+
+/* NAV */
+nav{
+  position:fixed;top:0;width:100%;
+  background:rgba(5,8,18,.9);
+  display:flex;justify-content:flex-start;
+  align-items:center;
+  gap:30px;
+  padding:20px 10%;z-index:1000
+}
+nav a{color:cyan;text-decoration:none;margin-left:15px;font-weight:500}
+
+/* SECTION */
+section{padding:100px 10%}
+h2{text-align:center;color:cyan;margin-bottom:40px}
+
+/* HERO */
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:80px;
+}
+.hero img{
+  width:400px;
+  border-radius:52%;
+  box-shadow:0 0 50px rgb(100, 135, 135);
+}
+.hero .hero-text{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+.hero h1{font-size:48px; color:cyan}
+.hero .typing{
+  font-size:28px;
+  color:#e0f2fe;
+  border-right: 2px solid cyan;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.hero p{margin-top:10px;color:#bbb;line-height:1.6;font-size:18px}
+
+/* ABOUT */
+.about p{
+  max-width:900px;margin:auto;
+  line-height:1.8;font-size:16px;text-align:center
+}
+
+/* SPLIT LAYOUT */
+.split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+}
+@media(max-width:900px){
+  .split{grid-template-columns:1fr}
+}
+
+/* SKILLS */
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:22px;
+}
+.skill-card{
+  background:#020617;
+  border-radius:18px;
+  padding:25px 15px;
+  text-align:center;
+  box-shadow:0 0 25px rgba(0,255,255,0.25);
+  transition:.3s;
+}
+.skill-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 45px rgba(0,255,255,0.6);
+}
+.skill-card i{
+  font-size:42px;
+  margin-bottom:12px;
+}
+.skill-card p{
+  font-weight:600;
+  color:#e0f2fe;
+}
+
+/* EDUCATION */
+.education{
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+}
+.edu-box{
+  background:#020617;
+  padding:26px;
+  border-radius:18px;
+  border-left:5px solid #a855f7;
+  box-shadow:0 0 30px rgba(168,85,247,0.35);
+}
+.edu-box h4{color:#e0f2fe;margin-bottom:8px}
+.edu-box p{color:#cbd5f5;font-size:15px}
+
+/* INTERNSHIP */
+.internships{
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+  margin-top:30px;
+}
+.intern-box{
+  background:#020617;
+  padding:26px;
+  border-radius:18px;
+  border-left:5px solid #22d3ee;
+  box-shadow:0 0 30px rgba(34,211,238,0.35);
+}
+.intern-box h4{color:#e0f2fe;margin-bottom:8px}
+.intern-box p{color:#cbd5f5;font-size:15px}
+
+/* PROJECTS */
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px
+}
+.project{
+  background:#0b1025;
+  border-radius:15px;
+  padding:20px;
+  box-shadow:0 0 15px rgba(0,255,255,.15)
+}
+.project img{
+  width:100%;
+  border-radius:10px;
+  margin-bottom:15px
+}
+
+/* CERTIFICATES */
+.slider{position:relative;max-width:600px;margin:auto}
+.slides{height:350px;position:relative;overflow:hidden;border-radius:15px;box-shadow:0 0 25px rgba(0,255,255,0.3);}
+.slide{
+  position:absolute;width:100%;height:100%;
+  object-fit:contain;opacity:0;
+  transform:translateX(30px);
+  transition:.6s
+}
+.slide.active{opacity:1;transform:translateX(0)}
+.arrow{
+  position:absolute;top:50%;
+  transform:translateY(-50%);
+  background: rgba(0,255,255,.2);
+  border: 1px solid cyan;color:cyan;
+  font-size:28px;padding:12px;
+  border-radius:50%;cursor:pointer;
+  z-index:10;
+}
+.arrow.left{left:-40px;}
+.arrow.right{right:-40px;}
+@media(max-width:700px){
+  .arrow.left{left:10px;}
+  .arrow.right{right:10px;}
+}
+
+/* CONTACT */
+.contact-box{
+  background:#0b1025;
+  padding:30px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 0 20px rgba(0,255,255,.2)
+}
+.contact-box a{
+  color:cyan;margin:0 15px;
+  font-size:22px;text-decoration:none
+}
+.contact-box p{margin:10px 0; font-size:18px; color:#e0f2fe;}
+
+footer{text-align:center;padding:20px;color:#888}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div style="display:flex;align-items:center;gap:30px">
+    <strong style="font-size:22px;color:cyan">Dharshini K</strong>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#internships">Internships</a>
+    <a href="#projects">Projects</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>I'm Dharshini K</h1>
+    <div class="typing" id="typing"></div>
+    <p>Building scalable, responsive, and user-focused web applications using modern frontend and backend technologies.</p>
+  </div>
+  <img src="dd (2).jpg">
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+<h2>About Me</h2>
+<p>
+I am a Computer Science Engineering student with a strong interest in full stack web development. 
+I enjoy designing clean user interfaces and building reliable backend systems that work seamlessly together.
+Through hands-on projects, I have gained practical experience in developing complete applications—from planning and UI design to database integration and deployment-ready architecture.
+I continuously focus on writing clean, maintainable code and improving application performance and usability.
+</p>
+</section>
+
+<!-- SKILLS & EDUCATION -->
+<section id="skills">
+<h2>Skills & Education</h2>
+<div class="split">
+
+<!-- SKILLS -->
+<div>
+<h3 style="color:cyan;margin-bottom:20px">Technical Skills</h3>
+<div class="skills-grid">
+  <div class="skill-card"><i class="fa-brands fa-html5" style="color:#e34f26"></i><p>HTML5</p></div>
+  <div class="skill-card"><i class="fa-brands fa-css3-alt" style="color:#1572b6"></i><p>CSS3</p></div>
+  <div class="skill-card"><i class="fa-brands fa-square-js" style="color:#f7df1e"></i><p>JavaScript</p></div>
+  <div class="skill-card"><i class="fa-brands fa-react" style="color:#61dafb"></i><p>React.js</p></div>
+  <div class="skill-card"><i class="fa-brands fa-node-js" style="color:#68a063"></i><p>Node.js</p></div>
+  <div class="skill-card"><i class="fa-solid fa-database" style="color:#4db33d"></i><p>MongoDB</p></div>
+  <div class="skill-card"><i class="fa-brands fa-java" style="color:#f89820"></i><p>Java ☕</p></div>
+</div>
+</div>
+
+<!-- EDUCATION -->
+<div>
+<h3 style="color:cyan;margin-bottom:20px">Education</h3>
+<div class="education">
+  <div class="edu-box">
+    <h4>B.E – Computer Science Engineering</h4>
+    <p>Mount Zion College of Engineering and Technology</p>
+    <p><strong>2022 – 2026</strong> | CGPA: <strong>7.76</strong></p>
+  </div>
+  <div class="edu-box">
+    <h4>Higher Secondary Certificate (HSC)</h4>
+    <p>2022 | Percentage: <strong>75%</strong></p>
+  </div>
+  <div class="edu-box">
+    <h4>Secondary School Leaving Certificate (SSLC)</h4>
+    <p>2020 | Percentage: <strong>92%</strong></p>
+  </div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- INTERNSHIPS -->
+<section id="internships">
+<h2>Internships</h2>
+<div class="internships">
+  <div class="intern-box">
+    <h4>GB Tech Corp — Data Analytics Intern</h4>
+    <p>Worked on analyzing readmission datasets and creating insightful visualizations. (Jun 2025 – Jul 2025)</p>
+  </div>
+  <div class="intern-box">
+    <h4>8 Queens Tech Pvt Ltd — Full Stack Web Development Intern</h4>
+    <p>Built and maintained web applications using React.js and Node.js. (Jan 2025 – Feb 2025)</p>
+  </div>
+  <div class="intern-box">
+    <h4>Industrial IoT Intern</h4>
+    <p>Assisted in IoT device integration and backend data management. (Feb 2024)</p>
+  </div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+<h2>Projects</h2>
+<div class="projects">
+
+<div class="project">
+<img src="e2.png">
+<h3>E-Commerce Web Application</h3>
+<p>
+Developed a full-stack e-commerce platform featuring user authentication, product management, shopping cart functionality, and order handling.
+Implemented an admin dashboard for managing products and users.
+Designed RESTful APIs and integrated MongoDB for efficient data storage.
+Focused on responsive UI, secure authentication, and scalable architecture.
+</p>
+</div>
+
+<div class="project">
+<img src="h1.png">
+<h3>Hotel Booking Application</h3>
+<p>
+Built a responsive hotel booking system with room listings, filtering options, and booking flow.
+Implemented a clean React-based UI and integrated APIs for dynamic data handling.
+Focused on user experience by optimizing navigation, layout, and mobile responsiveness.
+</p>
+</div>
+
+<div class="project">
+<img src="exam.jpg">
+<h3>Exam Registration System</h3>
+<p>
+Created a web-based exam registration system allowing students to register and administrators to manage exam data.
+Implemented database integration using MySQL and provided secure admin access.
+Focused on form validation, data accuracy, and structured backend logic.
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- CERTIFICATES -->
+<section id="certificates">
+<h2>Certificates</h2>
+<div class="slider">
+  <button class="arrow left" onclick="prev()">❮</button>
+  <div class="slides">
+    <img src="c1.jpg" class="slide active">
+    <img src="c2.png" class="slide">
+    <img src="c3.jpg" class="slide">
+    <img src="c4.jpg" class="slide">
+    <img src="c5.jpg" class="slide">
+    <img src="c6.jpg" class="slide">
+    <img src="c7.png" class="slide">
+  </div>
+  <button class="arrow right" onclick="next()">❯</button>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Contact</h2>
+<div class="contact-box">
+  <p>Email: dharshini@example.com</p>
+  <p>Mobile: +91 8489922015</p>
+  <a href="https://github.com/dharshini1103-gits" target="_blank">GitHub</a>
+  <a href="https://www.linkedin.com/in/dharshini-kannan1103/" target="_blank">LinkedIn</a>
+</div>
+</section>
+
+<footer>© 2026 Dharshini | Full Stack Developer</footer>
+
+<!-- JS -->
+<script>
+// Typing effect
+const text = "Full Stack Developer";
+let index = 0;
+const speed = 150;
+const typing = document.getElementById("typing");
+
+function type(){
+  if(index < text.length){
+    typing.innerHTML += text.charAt(index);
+    index++;
+    setTimeout(type, speed);
+  } else {
+    setInterval(()=>{typing.style.borderRight = typing.style.borderRight === '2px solid cyan' ? 'none' : '2px solid cyan';},500)
+  }
+}
+type();
+
+// Certificate slider
+let i=0;
+const slides=document.querySelectorAll(".slide");
+slides.forEach(s=>{let img=new Image();img.src=s.src});
+
+function show(n){
+  slides.forEach(s=>s.classList.remove("active"));
+  slides[n].classList.add("active");
+}
+function next(){i=(i+1)%slides.length;show(i)}
+function prev(){i=(i-1+slides.length)%slides.length;show(i)}
+</script>
+
+</body>
+</html>
